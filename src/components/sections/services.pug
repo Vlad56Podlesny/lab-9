@@ -1,0 +1,11 @@
+section.section.container.about#about
+  p.eyebrow What we do
+  h2.section-title Our services
+  p.section-intro A small studio with a wide creative perspective.
+  .services
+    each service in services
+      article.service
+        .service__icon
+          +icon(service.icon)
+        h3.service__title= service.title
+        p.service__text= service.text

@@ -1,0 +1,22 @@
+header.site-header
+  .container.site-header__inner
+    a.logo(href='#top' aria-label='Keepsake home')
+      span.logo__round K
+      span eepsake
+    nav.desktop-nav(aria-label='Main navigation')
+      each item, i in navItems
+        a.desktop-nav__link(href=item.href class={'desktop-nav__link--active':item.active})= item.label
+      a.desktop-nav__heart(href='#works' aria-label='Favourites') ♥
+    details.mobile-nav
+      summary.mobile-nav__toggle(aria-label='Open or close menu')
+        span.mobile-nav__burger
+      .mobile-nav__panel
+        nav.mobile-nav__links(aria-label='Mobile navigation')
+          each item in navItems
+            a(href=item.href)= item.label
+        +btn('Contact us','#contact')
+        +btn('♥ Favourites','#works','outline')
+        p.mobile-nav__contact Say hello: hello@keepsake.studio
+        .socials
+          each social in socialLinks
+            a(href='#contact' aria-label=social.label)= social.text

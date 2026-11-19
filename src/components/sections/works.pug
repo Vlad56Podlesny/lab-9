@@ -1,0 +1,15 @@
+section.section.container.works#works
+  p.eyebrow Our selected work
+  h2.section-title Creative portfolio
+  p.section-intro Every project is a new story worth telling.
+  .portfolio
+    each filter, i in filters
+      input.filter-radio(type='radio' name='category' id=`filter-${filter.id}` checked=i===0 aria-label=`Filter: ${filter.label}`)
+    .filters(role='group' aria-label='Portfolio categories')
+      each filter in filters
+        label.filters__chip(for=`filter-${filter.id}`)= filter.label
+    .work-grid
+      each work, i in works
+        +work-card(work)
+  .works__more
+    +btn('Explore our journal','#journal','secondary')

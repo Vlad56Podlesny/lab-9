@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+.portfolio { position: relative; }
+.filter-radio { @include visually-hidden; }
+.filters { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 28px; &__chip { flex: none; padding: 8px 15px; border: 1px solid var(--color-border); text-transform: uppercase; font-size: .75rem; cursor: pointer; } }
+.work-grid { display: grid; grid-template-columns: 1fr; gap: 12px; @include mq(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); } @include mq(lg) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
+.work-card { position: relative; overflow: hidden; aspect-ratio: 1.27; &__image { width: 100%; height: 100%; object-fit: cover; } &__overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgb(30 32 36 / 82%); color: white; opacity: 0; transition: opacity .2s; } &:hover &__overlay, &:focus-visible &__overlay { opacity: 1; } &__title { color: white; margin: 12px 0; font-size: 1.6rem; } &__plus { color: var(--color-teal); font-size: 3rem; } &__category { color: var(--color-teal); text-transform: uppercase; font-size: .8rem; } }
+.works__more { text-align: center; margin-top: 28px; }
+@each $cat in all, branding, identity, print, web, motion {
+  .filter-radio[id='filter-#{$cat}']:checked ~ .filters .filters__chip[for='filter-#{$cat}'] { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+  @if $cat != all { .filter-radio[id='filter-#{$cat}']:checked ~ .work-grid .work-card:not([data-category='#{$cat}']) { display: none; } }
+}

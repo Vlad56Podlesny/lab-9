@@ -1,0 +1,13 @@
+section.section.container.journal#journal
+  p.eyebrow Our journal
+  h2.section-title Latest stories
+  p.section-intro Ideas, inspiration and notes from the studio.
+  .journal-grid
+    each post, i in journals
+      article.journal-post
+        +picture(post.image, `${post.title} — journal illustration`, 'journal-post__image')
+        .journal-post__body
+          p.journal-post__meta #{post.date} / #{post.category}
+          h3= post.title
+          p A few thoughts about design, visual storytelling and creating work that lasts.
+          a(href='#contact') Read more →

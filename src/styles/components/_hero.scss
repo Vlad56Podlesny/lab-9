@@ -1,0 +1,2 @@
+@use '../abstracts' as *;
+.hero { background: var(--color-bg-light); padding: 95px 0 85px; text-align: center; &__inner { max-width: 800px; } &__title { font-size: rem(40); font-weight: 300; margin: 22px 0; text-transform: uppercase; @include mq(md) { font-size: rem(56); } @include mq(lg) { font-size: rem(70); } } &__description { max-width: 550px; margin: 0 auto 30px; } &__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; } }

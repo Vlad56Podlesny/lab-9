@@ -1,0 +1,27 @@
+footer.footer#contact
+  .container
+    .footer__main
+      .footer__links
+        each group in footerGroups
+          .footer__column
+            h2= group.title
+            each link in group.links
+              a(href=link.href)= link.label
+      .newsletter
+        h2 Newsletter
+        p Fresh case studies and design notes, once a month.
+        form(action='#contact' method='get')
+          label.visually-hidden(for='email') Your email address
+          .newsletter__entry
+            input#email(type='email' name='email' placeholder='Your email address' required aria-describedby='email-hint')
+            button.btn.btn--primary(type='submit') Subscribe
+          label.newsletter__consent
+            input(type='checkbox' required)
+            | I agree to the privacy policy
+          span#email-hint.newsletter__hint Enter a valid email and accept the privacy policy.
+        p.newsletter__note Demo only — no email is sent.
+    .footer__bottom
+      small © 2026 Keepsake. All rights reserved.
+      .socials
+        each social in socialLinks
+          a(href='#contact' aria-label=social.label)= social.text
